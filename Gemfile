@@ -37,6 +37,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Devise for User login
 gem 'devise'
 
+# Calendar feature
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
