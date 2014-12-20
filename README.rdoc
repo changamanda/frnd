@@ -1,0 +1,4 @@
+== FRND
+
+An application for the Food Recovery Network at Grinnell College.
+Version 0.0
