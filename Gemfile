@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
-
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta2'
+#Arel update
+gem 'arel', '6.0.0.beta2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -31,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use Devise for User login
+gem 'devise'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
