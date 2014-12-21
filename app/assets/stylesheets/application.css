@@ -11,7 +11,12 @@
  * file per style scope.
  *
  *= require fullcalendar
- *= require fullcalendar.print
  *= require_tree .
  *= require_self
  */
+
+#calendar {
+	width: 70%;
+	height: 40%;
+	margin: 0 auto;
+}
