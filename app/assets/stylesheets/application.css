@@ -11,12 +11,20 @@
  * file per style scope.
  *
  *= require fullcalendar
+ *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  *= require_self
  */
 
+body {
+	padding-bottom: 2%;
+}
+
 #calendar {
-	width: 70%;
-	height: 40%;
+	width: 80%;
 	margin: 0 auto;
+}
+
+.navbar {
+	border-radius: 0px;
 }

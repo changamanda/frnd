@@ -15,15 +15,5 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/gcal
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
-
-$(document).ready(function() {
-
-    $('#calendar').fullCalendar({
-       googleCalendarApiKey: 'AIzaSyDlCwOOG6dsZqKW2WHURY-CRlMfoluHo28',
-       events: {
-          googleCalendarId: 'amanda.chang10@gmail.com'
-       }
-    })
-
-});
