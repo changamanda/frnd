@@ -1,0 +1,10 @@
+<div class = 'container'>
+	<h2>Your Shifts</h2>
+	<% current_user.shifts.each do |shift| %>
+		<%= shift.start_time.strftime('%b%e: %l %P') %> - <%= shift.end_time.strftime('%l %P') %>
+	<% end %>
+	<h2>All Shifts</h2>
+	<% Shift.all.each do |shift| %>
+		<%= shift.start_time.strftime('%b%e: %l %P') %> - <%= shift.end_time.strftime('%l %P') %>
+	<% end %>
+</div>
