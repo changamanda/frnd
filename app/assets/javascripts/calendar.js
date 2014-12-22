@@ -2,9 +2,7 @@ $(document).ready(function() {
 
     $('#calendar').fullCalendar({
        googleCalendarApiKey: 'AIzaSyDlCwOOG6dsZqKW2WHURY-CRlMfoluHo28',
-       events: {
-          googleCalendarId: 'amanda.chang10@gmail.com'
-       },
+       events: $('.container').data('shifts'),
        editable: true,
        defaultView: 'agendaWeek',
        height: 400,

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :shifts
+
   get 'calendar/index'
 
   get 'home/index'
