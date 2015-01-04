@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Accurate timestamps
+  # config.time_zone = "Central Time (US & Canada)"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

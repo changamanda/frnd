@@ -5,7 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_shifts
-  has_many :shifts, through: :user_shifts
+  has_many :shifts, -> {uniq}, through: :user_shifts
+  has_many :user_shift_items
+  has_many :shift_items, -> {uniq}, through: :user_shift_items
+
+  def signup(shift)
+    self.shifts << shift
+    self.shift_items << shift.shift_items
+  end
 
   def grade
   	case self.year

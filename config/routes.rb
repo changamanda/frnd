@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :user_shifts
-  resources :shifts
+  resources :shifts, only: [:index, :create] do
+    resources :shift_items, only: [:new, :create]
+    resources :user_shifts, only: [:create]
+  end
 
   get 'home/index'
 

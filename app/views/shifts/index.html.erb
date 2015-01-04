@@ -1,10 +1,35 @@
 <div class = 'container'>
+	<h2>Your Upcoming Slots</h2>
+	<% current_user.shift_items.all.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+		<%= shiftitem.day.strftime("%a %b %e %l:%M %Z %Y") %><br>
+	<% end %>
+
+	<h2>All Slots</h2>
+	<% ShiftItem.all.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+		<%= shiftitem.day.strftime("%a %b %e %l:%M %Z %Y") %><br>
+	<% end %>
+
 	<h2>Your Shifts</h2>
 	<% current_user.shifts.each do |shift| %>
-		<%= shift.start_time.strftime('%b%e: %l %P') %> - <%= shift.end_time.strftime('%l %P') %>
+		<%= shift.weekday %> <%= shift.time %><br>
 	<% end %>
+
 	<h2>All Shifts</h2>
 	<% Shift.all.each do |shift| %>
-		<%= shift.start_time.strftime('%b%e: %l %P') %> - <%= shift.end_time.strftime('%l %P') %>
+		<%= shift.weekday %> <%= shift.time %> | <%= link_to("Create New Slots", new_shift_shift_item_path(shift.id)) %> | <%= link_to("Sign Up For Shift", shift_user_shifts_path(shift.id), method: :post) %><br>
+	<% end %>
+
+	<h2>Create New Shift</h2>
+	<%= form_for @shift do |f| %>
+			<%= f.label :volunteer_number %>:
+		  <%= f.text_field :volunteer_number %><br>
+
+		  <%= f.label :weekday %>:
+		  <%= f.text_field :weekday %><br>
+
+		  <%= f.label :time %>:
+		  <%= f.text_field :time %><br>
+
+		  <%= f.submit %>
 	<% end %>
 </div>

@@ -11,14 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222175008) do
+ActiveRecord::Schema.define(version: 20150104044518) do
+
+  create_table "shift_items", force: true do |t|
+    t.datetime "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "shift_id"
+  end
 
   create_table "shifts", force: true do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.integer  "volunteer_number"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "weekday"
+    t.string   "time"
+  end
+
+  create_table "user_shift_items", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "shift_item_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "user_shifts", force: true do |t|

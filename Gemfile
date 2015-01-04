@@ -41,6 +41,10 @@ gem 'devise'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem 'chronic'
+
+gem 'pry'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

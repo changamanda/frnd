@@ -1,0 +1,10 @@
+<div class = 'container'>
+	<h2>Create New Slots</h2>
+	<%= form_tag shift_shift_items_path(params[:shift_id]) do %>
+		<%= label_tag(:start_weeks, "Number of weeks until start:") %>
+  	<%= text_field_tag(:start_weeks) %><br>
+  	<%= label_tag(:slots, "Number of slots to add:") %>
+  	<%= text_field_tag(:slots) %><br>
+		<%= submit_tag 'Save' %>
+	<% end %>
+</div>
