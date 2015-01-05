@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3><%= @user.name %> needs a sub for <%= @shift.dayf %></h3>
+    <%= link_to("Click to Fill Sub Request", "http://localhost:3000/shift_items/#{@shift.id}/subfill") %>
+  </body>
+</html>

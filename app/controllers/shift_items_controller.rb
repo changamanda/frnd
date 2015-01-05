@@ -9,4 +9,26 @@ class ShiftItemsController < ApplicationController
 		redirect_to shifts_path
 	end
 
+	def sub
+		@shiftitem = ShiftItem.find(params[:id])
+		@shiftitem.sub_id = current_user.id
+		@shiftitem.save
+
+		UserMailer.sub_email(current_user, params[:id]).deliver_now
+		redirect_to shifts_path
+	end
+
+	def subfill
+		@shiftitem = ShiftItem.find(params[:id])
+	end
+
+	def subupdate
+		@shiftitem = ShiftItem.find(params[:id])
+		@shiftitem.replace_user(@shiftitem.sub_id, current_user.id)
+		@shiftitem.sub_id = nil
+		@shiftitem.save
+
+		redirect_to shifts_path
+	end
+
 end

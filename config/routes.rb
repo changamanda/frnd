@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/index', to: 'users#index', as: 'users'
   get 'users/:id', to: 'users#show', as: 'user'
+
+  post '/shift_items/:id/sub', to: 'shift_items#sub', as: 'new_sub'
+  get '/shift_items/:id/subfill', to: 'shift_items#subfill', as: 'fill_sub'
+  post '/shift_items/:id/subfill', to: 'shift_items#subupdate', as: 'update_sub'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,11 @@
+<div class = 'container'>
+	<h2>Confirm</h2>
+	<% if @shiftitem.sub_id %>
+		<p><strong>Shift:</strong> <%= @shiftitem.dayf %></p>
+		<%= form_tag update_sub_path(params[:id]) do %>
+			<%= submit_tag 'Save' %>
+		<% end %>
+	<% else %>
+		<p>Shift has been filled! Have a nice day :)</p>
+	<% end %>
+</div>
