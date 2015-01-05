@@ -1,17 +1,12 @@
 <div class = 'container'>
-	<h2>Your Upcoming Slots</h2>
-	<% current_user.shift_items.all.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
-		<%= shiftitem.dayf %> | <%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><br>
-	<% end %>
-
 	<h2>All Slots</h2>
 	<% ShiftItem.all.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
-		<%= shiftitem.dayf %><br>
-	<% end %>
-
-	<h2>Your Shifts</h2>
-	<% current_user.shifts.each do |shift| %>
-		<%= shift.weekday %> <%= shift.time %><br>
+		<%= shiftitem.dayf %>
+		<ul>
+		<% shiftitem.users.all.each do |user| %>
+			<li><%= user.name %></li>
+		<% end %>
+		</ul>
 	<% end %>
 
 	<h2>All Shifts</h2>

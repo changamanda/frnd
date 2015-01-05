@@ -6,5 +6,15 @@
 	<p><strong>Email:</strong> <%= @user.email %></p>
 	<p><strong>Phone Number:</strong> <%= @user.phone %></p>
 
-	<%= link_to("Log Out",  destroy_user_session_path, method: :delete) %>
+	<h3><%= @user.name %>'s Upcoming Slots</h3>
+	<% @user.shift_items.all.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+		<%= shiftitem.dayf %> | <%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><br>
+	<% end %>
+
+	<h3><%= @user.name %>'s Shifts</h3>
+	<% @user.shifts.each do |shift| %>
+		<%= shift.weekday %> <%= shift.time %><br>
+	<% end %>
+
+	<br><%= link_to("Log Out",  destroy_user_session_path, method: :delete) %>
 </div>

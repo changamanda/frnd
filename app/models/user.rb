@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :user_shifts
   has_many :shifts, -> {uniq}, through: :user_shifts
   has_many :user_shift_items
-  has_many :shift_items, -> {uniq}, through: :user_shift_items
+  has_many :shift_items, through: :user_shift_items
 
   def signup(shift)
     self.shifts << shift
