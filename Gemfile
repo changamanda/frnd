@@ -41,10 +41,11 @@ gem 'devise'
 # Calendar feature
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-
+# Chronic gem for timeline
 gem 'chronic'
-
+# Pry
 gem 'pry'
+# Sending scheduled texts
 gem 'rufus-scheduler'
 
 group :development, :test do
