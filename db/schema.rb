@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104221421) do
+ActiveRecord::Schema.define(version: 20150106190703) do
 
   create_table "shift_items", force: true do |t|
     t.datetime "day"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20150104221421) do
     t.datetime "updated_at",       null: false
     t.string   "weekday"
     t.string   "time"
+  end
+
+  create_table "texts", force: true do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_shift_items", force: true do |t|

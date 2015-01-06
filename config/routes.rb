@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/shift_items/:id/sub', to: 'shift_items#sub', as: 'new_sub'
   get '/shift_items/:id/subfill', to: 'shift_items#subfill', as: 'fill_sub'
   post '/shift_items/:id/subfill', to: 'shift_items#subupdate', as: 'update_sub'
+
+  post '/text', to: 'text#send_text_message', as: 'text'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

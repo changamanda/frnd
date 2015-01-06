@@ -9,6 +9,13 @@ class ShiftItem < ActiveRecord::Base
 	end
 
 	def dayf
-		self.day.strftime("%a %b %e, %Y %l:%M %Z")
+		self.day.strftime("%a %b %e, %Y%l:%M %Z")
+	end
+
+	def self.today
+		now = Time.now.to_date
+		self.all.select do |shiftitem|
+			shiftitem.day.to_date == now.to_date
+		end
 	end
 end
