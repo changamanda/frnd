@@ -1,0 +1,9 @@
+<div class = 'container'>
+	<h2>Log Food</h2>
+	<%= form_for @shiftitem, url: log_update_path(@shiftitem) do |f| %>
+	  <%= f.label :pounds %>:
+	  <%= f.text_field :pounds %><br />
+
+	  <%= f.submit %>
+	<% end %>
+</div>

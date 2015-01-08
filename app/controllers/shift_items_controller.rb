@@ -31,4 +31,20 @@ class ShiftItemsController < ApplicationController
 		redirect_to shifts_path
 	end
 
+	def log
+		@shiftitem = ShiftItem.find(params[:id])
+	end
+
+	def logupdate
+		@shiftitem = ShiftItem.find(params[:id])
+		@shiftitem.update(shiftitem_log_params)
+		redirect_to current_user
+	end
+
+	private
+
+  def shiftitem_log_params
+    params.require(:shift_item).permit(:pounds)
+  end
+
 end

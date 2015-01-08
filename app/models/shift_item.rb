@@ -20,6 +20,10 @@ class ShiftItem < ActiveRecord::Base
 		Time.now < self.day
 	end
 
+	def self.total_pounds
+		self.all.pluck(:pounds).compact.inject(:+)
+	end
+
 	def self.past
 		self.all.select{|shiftitem| shiftitem.past}
 	end

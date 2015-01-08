@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/shift_items/:id/sub', to: 'shift_items#sub', as: 'new_sub'
   get '/shift_items/:id/subfill', to: 'shift_items#subfill', as: 'fill_sub'
   post '/shift_items/:id/subfill', to: 'shift_items#subupdate', as: 'update_sub'
+  get '/shift_items/:id/log', to: 'shift_items#log', as: 'log'
+  patch '/shift_items/:id/log', to: 'shift_items#logupdate', as: 'log_update'
 
   post '/text', to: 'text#send_text_message', as: 'text'
   # The priority is based upon order of creation: first created -> highest priority.

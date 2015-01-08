@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106190703) do
+ActiveRecord::Schema.define(version: 20150108191027) do
 
   create_table "shift_items", force: true do |t|
     t.datetime "day"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150106190703) do
     t.datetime "updated_at", null: false
     t.integer  "shift_id"
     t.integer  "sub_id"
+    t.float    "pounds"
   end
 
   create_table "shifts", force: true do |t|
