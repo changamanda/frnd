@@ -11,7 +11,7 @@
 
 	<h2>All Shifts</h2>
 	<% Shift.all.each do |shift| %>
-		<%= shift.weekday %> <%= shift.time %> | <%= link_to("Create New Slots", new_shift_shift_item_path(shift.id)) %> | <%= link_to("Sign Up For Shift", shift_user_shifts_path(shift.id), method: :post) %><br>
+		<%= shift.weekday %> <%= shift.time %> | <%= link_to("Create New Slots", new_shift_shift_item_path(shift.id)) %> | <% if shift.open %><%= link_to("Sign Up For Shift", shift_user_shifts_path(shift.id), method: :post) %><% else %>Filled!<% end %><br>
 	<% end %>
 
 	<h2>Create New Shift</h2>

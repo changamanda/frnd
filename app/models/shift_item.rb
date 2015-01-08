@@ -12,6 +12,22 @@ class ShiftItem < ActiveRecord::Base
 		self.day.strftime("%a %b %e, %Y%l:%M %Z")
 	end
 
+	def past
+		Time.now > self.day
+	end
+
+	def future
+		Time.now < self.day
+	end
+
+	def self.past
+		self.all.select{|shiftitem| shiftitem.past}
+	end
+
+	def self.future
+		self.all.select{|shiftitem| shiftitem.future}
+	end
+
 	def self.today
 		now = Time.now.to_date
 		self.all.select do |shiftitem|

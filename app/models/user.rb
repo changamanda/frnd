@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
     self.shift_items << shift.shift_items
   end
 
+  def past_shift_items
+    self.shift_items.select{|shiftitem| shiftitem.past}
+  end
+
+  def future_shift_items
+    self.shift_items.select{|shiftitem| shiftitem.future}
+  end
+
   def grade
   	case self.year
   	when 1

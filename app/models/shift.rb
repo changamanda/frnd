@@ -19,15 +19,23 @@ class Shift < ActiveRecord::Base
 		end
 	end
 
+	def filled
+		self.users.count >= self.volunteer_number
+	end
+
+	def open
+		self.users.count < self.volunteer_number
+	end
+
 	def today?
 		self.weekday == Time.now.strftime("%A")
 	end
 
 	def self.filled
-		self.all.select{|shift| shift.users.count == shift.volunteer_number}
+		self.all.select{|shift| shift.filled}
 	end
 
 	def self.open
-		self.all.select{|shift| shift.users.count < shift.volunteer_number}
+		self.all.select{|shift| shift.open}
 	end
 end

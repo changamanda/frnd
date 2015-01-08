@@ -7,8 +7,13 @@
 	<p><strong>Phone Number:</strong> <%= @user.phone %></p>
 
 	<h3><%= @user.name %>'s Upcoming Slots</h3>
-	<% @user.shift_items.all.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+	<% @user.future_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
 		<%= shiftitem.dayf %> | <%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><br>
+	<% end %>
+
+	<h3><%= @user.name %>'s Past Slots</h3>
+	<% @user.past_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+		<%= shiftitem.dayf %> | Log Food<br>
 	<% end %>
 
 	<h3><%= @user.name %>'s Shifts</h3>
