@@ -1,28 +1,29 @@
 <div class = 'container'>
-	<h1>FRND User Page!</h1>
+	<div class = 'full-col'>
+		<h1>Welcome, <%= current_user.name %>!</h1>
+	</div>
 
-	<p><strong>Name:</strong> <%= @user.name %></p>
-	<p><strong>Grade:</strong> <%= @user.grade %></p>
-	<p><strong>Email:</strong> <%= @user.email %></p>
-	<p><strong>Phone Number:</strong> <%= @user.phone %></p>
+	<div class = 'left-col'>
+		<p><strong>Name:</strong> <%= @user.name %></p>
+		<p><strong>Grade:</strong> <%= @user.grade %></p>
+		<p><strong>Email:</strong> <%= @user.email %></p>
+		<p><strong>Phone Number:</strong> <%= @user.phone %></p>
+	</div>
 
-	<h3>Total FRND Pounds:</h3>
-	<%= ShiftItem.total_pounds %> pounds
+	<div class = 'right-col'>
+		<h3><%= @user.name %>'s Upcoming Slots</h3>
+		<% @user.future_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+			<%= shiftitem.dayf %> | <%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><br>
+		<% end %>
 
-	<h3><%= @user.name %>'s Upcoming Slots</h3>
-	<% @user.future_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
-		<%= shiftitem.dayf %> | <%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><br>
-	<% end %>
+		<h3><%= @user.name %>'s Past Slots</h3>
+		<% @user.past_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+			<%= shiftitem.dayf %><% if !shiftitem.pounds %> | <%= link_to("Log Food", log_path(shiftitem)) %><% end %><br>
+		<% end %>
 
-	<h3><%= @user.name %>'s Past Slots</h3>
-	<% @user.past_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
-		<%= shiftitem.dayf %><% if !shiftitem.pounds %> | <%= link_to("Log Food", log_path(shiftitem)) %><% end %><br>
-	<% end %>
-
-	<h3><%= @user.name %>'s Shifts</h3>
-	<% @user.shifts.each do |shift| %>
-		<%= shift.weekday %> <%= shift.time %><br>
-	<% end %>
-
-	<br><%= link_to("Log Out",  destroy_user_session_path, method: :delete) %>
+		<h3><%= @user.name %>'s Shifts</h3>
+		<% @user.shifts.each do |shift| %>
+			<%= shift.weekday %> <%= shift.time %><br>
+		<% end %>
+	</div>
 </div>

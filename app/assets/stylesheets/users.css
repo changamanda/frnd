@@ -1,0 +1,36 @@
+body{
+	background-color: gray;
+}
+
+.left-col, .right-col{
+	float: left;
+	background-color: white;
+	margin: 2.5%;
+	padding: 2%;
+}
+
+.left-col{
+	width: 30%;
+}
+
+.right-col{
+	width: 60%;
+	padding-top: 0;
+}
+
+.full-col{
+	width: 95%;
+	background-color: white;
+	margin: 0 auto;
+	padding: 1%;
+	text-align: center;
+	clear: both;
+}
+
+.top{
+	margin-top: 0;
+}
+
+.wide{
+	width: 95%;
+}
