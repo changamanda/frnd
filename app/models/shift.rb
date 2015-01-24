@@ -10,7 +10,6 @@ class Shift < ActiveRecord::Base
 	def create_shifts_starting_in(start_week, weeks)
 		for i in (start_week)..(start_week + weeks - 1)
 			day = Chronic.parse("#{i} weeks from now #{self.weekday} #{self.time}")
-			binding.pry
 			if (day.to_s[-3..-1].to_i == 500)
 				day = DateTime.parse(day.to_s[0..-4] + (day.to_s[-3..-1].to_i + 100).to_s)
 			end
