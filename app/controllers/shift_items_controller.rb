@@ -28,7 +28,7 @@ class ShiftItemsController < ApplicationController
 		@shiftitem.sub_id = nil
 		@shiftitem.save
 
-		redirect_to shifts_path
+		redirect_to current_user
 	end
 
 	def log
