@@ -1,8 +1,18 @@
-<div class = 'container'>
-	<div class = 'left-col wide top'>
-		<h1>FRN Stats</h1>
+<div class = 'box'>
+	<p>If you want to build a ship, don't drum up the men to gather wood, divide the work and give orders. Instead, teach them to yearn for the vast and endless sea.</p>
+	<p><em>-Antoine de Saint Exupéry</em></p>
+</div>
 
-		<h3>Total FRND Pounds:</h3>
-		<%= ShiftItem.total_pounds || 0 %> pounds
-	</div>
+<div class = 'box'>
+	<h3>FRND Grinnell Pounds, Spring 2015:</h3>
+	<%= ShiftItem.total_pounds || 0 %> pounds
+</div>
+
+<div class = 'box'>
+	<h3>Roster</h3>
+	<ul>
+	<% User.all.sort.each do |user| %>
+		<li><%= link_to(user.name, user) %></li>
+	<% end %>
+	</ul>
 </div>

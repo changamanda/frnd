@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render 'nav' %>
-	<!-- <p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p> -->
-	<%= yield %>
+	<div class = 'container'>
+		<%= render 'navc' %>
+		<!-- <p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p> -->
+		<%= yield %>
+	</div>
 </body>
 </html>

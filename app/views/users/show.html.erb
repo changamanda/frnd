@@ -1,29 +1,29 @@
-<div class = 'container'>
-	<div class = 'full-col'>
+<% if current_user == @user %>
+	<div class = 'box'>
 		<h1>Welcome, <%= current_user.name %>!</h1>
 	</div>
+<% end %>
 
-	<div class = 'left-col'>
-		<p><strong>Name:</strong> <%= @user.name %></p>
-		<p><strong>Grade:</strong> <%= @user.grade %></p>
-		<p><strong>Email:</strong> <%= @user.email %></p>
-		<p><strong>Phone Number:</strong> <%= @user.phone.to_i %></p>
-	</div>
+<div class = 'box'>
+	<p><strong>Name:</strong> <%= @user.name %></p>
+	<p><strong>Grade:</strong> <%= @user.grade %></p>
+	<p><strong>Email:</strong> <%= @user.email %></p>
+	<p><strong>Phone Number:</strong> <%= @user.phone.to_i %></p>
+</div>
 
-	<div class = 'right-col'>
-		<h3><%= @user.name %>'s Upcoming Slots</h3>
-		<% @user.future_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
-			<%= shiftitem.dayf %> | <% if !shiftitem.sub_id %><%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><% else %><%= link_to("Fill #{User.find(shiftitem.sub_id).name}'s Sub Request", fill_sub_path(shiftitem.id)) %><% end %><br>
-		<% end %>
+<div class = 'box'>
+	<h3><%= @user.name %>'s Upcoming Slots</h3>
+	<% @user.future_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+		<%= shiftitem.dayf %> | <% if !shiftitem.sub_id %><%= link_to("Sub Request", new_sub_path(shiftitem.id) , method: :post) %><% else %><%= link_to("Fill #{User.find(shiftitem.sub_id).name}'s Sub Request", fill_sub_path(shiftitem.id)) %><% end %><br>
+	<% end %>
 
-		<h3><%= @user.name %>'s Past Slots</h3>
-		<% @user.past_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
-			<%= shiftitem.dayf %><% if !shiftitem.pounds %> | <%= link_to("Log Food", log_path(shiftitem)) %><% end %><br>
-		<% end %>
+	<h3><%= @user.name %>'s Past Slots</h3>
+	<% @user.past_shift_items.sort{|a, b| a.day <=> b.day}.each do |shiftitem| %>
+		<%= shiftitem.dayf %><% if !shiftitem.pounds %> | <%= link_to("Log Food", log_path(shiftitem)) %><% end %><br>
+	<% end %>
 
-		<h3><%= @user.name %>'s Shifts</h3>
-		<% @user.shifts.each do |shift| %>
-			<%= shift.weekday %> <%= shift.time %><br>
-		<% end %>
-	</div>
+	<h3><%= @user.name %>'s Shifts</h3>
+	<% @user.shifts.each do |shift| %>
+		<%= shift.weekday %> <%= shift.time %><br>
+	<% end %>
 </div>
