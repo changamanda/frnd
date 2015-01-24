@@ -28,3 +28,7 @@ body {
 .navbar {
 	border-radius: 0px;
 }
+
+.navbar-brand {
+	padding: 12.5px 15px 20.5px;
+}
