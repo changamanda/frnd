@@ -11,10 +11,10 @@ class Shift < ActiveRecord::Base
 	def create_shifts_starting_in(start_week, weeks)
 		for i in (start_week)..(start_week + weeks - 1)
 			day = Chronic.parse("#{i} weeks from now #{self.weekday} #{self.time}")
-			if (day.to_s[-3..-1].to_i == 500)
-				day = DateTime.parse(day.to_s[0..-4] + (day.to_s[-3..-1].to_i + 100).to_s)
-			end
-			day = day.in_time_zone("UTC")
+			offset = 6
+			offset = 5 if day > Time.new(2015, 3, 8) 
+
+			day = day - offset.hours
 			shiftitem = ShiftItem.create(day: day, shift_id: self.id)
 			shiftitem.users << self.users
 			shiftitem.save
