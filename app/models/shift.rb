@@ -14,7 +14,7 @@ class Shift < ActiveRecord::Base
 			offset = 6
 			offset = 5 if day > Time.new(2015, 3, 8) 
 
-			day = day - offset.hours
+			day = day + offset.hours
 			shiftitem = ShiftItem.create(day: day, shift_id: self.id)
 			shiftitem.users << self.users
 			shiftitem.save
