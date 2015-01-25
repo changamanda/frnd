@@ -9,7 +9,7 @@ class ShiftItem < ActiveRecord::Base
 	end
 
 	def dayf
-		(self.day).in_time_zone("Central Time (US & Canada)").strftime("%a %b %e, %Y%l:%M %Z")
+		(self.day).in_time_zone("Central Time (US & Canada)").strftime("%a %b %e, %Y%l:%M %p %Z")
 	end
 
 	def past
